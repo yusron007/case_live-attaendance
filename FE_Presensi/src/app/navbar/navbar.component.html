@@ -1,0 +1,16 @@
+<mat-toolbar color="primary" style="background: #878787; padding: 15px;">
+  <div style="display: flex; justify-content: space-between; width: 100%;">
+    <div style="display: flex; gap: 15px; margin-left: 1rem;">
+      <button mat-button [routerLink]="'/karyawan'"
+        [ngClass]="{ 'active': isCurrentRoute(['/karyawan']) }">
+        Data Karyawan
+      </button>
+      <button mat-button [routerLink]="'/presensi'"
+        [ngClass]="{ 'active': isCurrentRoute(['/presensi']) }">
+        Data Presensi
+      </button>
+    </div>
+    <div style="display: flex; gap: 15px; margin-right: 1rem;">
+    </div>
+  </div>
+</mat-toolbar>

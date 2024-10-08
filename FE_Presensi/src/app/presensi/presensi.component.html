@@ -1,0 +1,72 @@
+<div class="container">
+  <mat-toolbar-row style="justify-content: center; padding-bottom: 2rem;">
+    <h1>Data Presensi</h1>
+  </mat-toolbar-row>
+
+  <mat-card class="table-card">
+    <div class="table-toolbar">
+      <mat-form-field>
+        <mat-label>Search</mat-label>
+        <input matInput (input)="applyFilter()" [(ngModel)]="searchKey" placeholder="Search by name">
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="navigateToCheckIn()">Check-In</button>
+    </div>
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+      <!-- NIK Column -->
+      <ng-container matColumnDef="nik">
+        <th mat-header-cell *matHeaderCellDef> NIK </th>
+        <td mat-cell *matCellDef="let element"> {{element.nik}} </td>
+      </ng-container>
+
+      <!-- Nama Column -->
+      <ng-container matColumnDef="nama">
+        <th mat-header-cell *matHeaderCellDef> Nama </th>
+        <td mat-cell *matCellDef="let element"> {{element.nama}} </td>
+      </ng-container>
+
+      <!-- Check In Column -->
+      <ng-container matColumnDef="check_in">
+        <th mat-header-cell *matHeaderCellDef> Check In </th>
+        <td mat-cell *matCellDef="let element"> {{element.check_in}} </td>
+      </ng-container>
+
+      <!-- Check Out Column -->
+      <ng-container matColumnDef="check_out">
+        <th mat-header-cell *matHeaderCellDef> Check Out </th>
+        <td mat-cell *matCellDef="let element"> {{element.check_out}} </td>
+      </ng-container>
+
+      <!-- Absen Column -->
+      <ng-container matColumnDef="absen">
+        <th mat-header-cell *matHeaderCellDef> Absen </th>
+        <td mat-cell *matCellDef="let element"> {{element.tipe_presensi_id}} </td>
+      </ng-container>
+
+      <!-- Image Column -->
+      <ng-container matColumnDef="image">
+        <th mat-header-cell *matHeaderCellDef> Image </th>
+        <td mat-cell *matCellDef="let element" class="image-cell">
+          <img *ngIf="element.image" [src]="element.image" alt="Presensi Image" class="profile-image">
+          <span *ngIf="!element.image">No Image</span>
+        </td>
+      </ng-container>
+
+      <!-- Action Column -->
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef> Action </th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-raised-button color="accent" (click)="checkOut(element.nik)">Check-Out</button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </mat-card>
+  <div class="pagination-container">
+    <mat-paginator [length]="totalElements" [pageSize]="10" [pageSizeOptions]="[10, 20, 50]">
+    </mat-paginator>
+  </div>
+</div>

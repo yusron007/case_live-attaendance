@@ -1,0 +1,13 @@
+button.active {
+  color: #080808;
+  background-color: white;
+}
+
+button {
+  color: white;
+}
+
+button:hover {
+  color: #080808;
+  background-color: white;
+}

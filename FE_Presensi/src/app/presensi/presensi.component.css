@@ -1,0 +1,48 @@
+.container {
+  padding: 3rem;
+}
+
+.image-cell {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.profile-image {
+  margin-top: 0.3rem;
+  width: 110%;
+  height: 150px;
+  border-radius: 10%;
+  object-fit: cover;
+}
+
+.table-toolbar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.table-card {
+  padding: 20px;
+  width: 70rem ;
+  margin: 0 auto;
+}
+
+table {
+  width: 100%;
+}
+
+mat-form-field {
+  width: 300px;
+}
+
+th, td {
+  text-align: center;
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: end;
+  margin-right: 21rem;
+  align-items: center;
+  margin-top: 20px;
+}

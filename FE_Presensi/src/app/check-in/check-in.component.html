@@ -1,0 +1,52 @@
+<div class="outer-container">
+  <div class="inner-container">
+    <mat-toolbar-row style="margin-left: 17rem; padding-bottom: 2rem;">
+      <h1>Check In</h1>
+    </mat-toolbar-row>
+    <div class="form-container">
+      <mat-card class="form-card">
+        <form [formGroup]="presensiForm" (ngSubmit)="submitForm()">
+
+          <mat-form-field appearance="outline">
+            <mat-label>Nama</mat-label>
+            <input type="text" matInput formControlName="nama" [matAutocomplete]="auto" (input)="filterNama($event)">
+            <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onNamaSelected($event)">
+              <mat-option *ngFor="let presensi of filteredPresensi" [value]="presensi.nama">
+                {{ presensi.nama }}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>NIK</mat-label>
+            <input matInput formControlName="nik" readonly>
+          </mat-form-field>
+
+          <div class="webcam-container">
+            <webcam *ngIf="showWebcam" [trigger]="triggerObservable" (imageCapture)="handleImage($event)" (initError)="handleInitError($event)"></webcam>
+            <button *ngIf="showWebcam" mat-raised-button color="primary" (click)="triggerSnapshot()">Take Picture</button>
+            <img *ngIf="webcamImage" [src]="webcamImage.imageAsDataUrl" />
+
+            <button *ngIf="webcamImage" mat-raised-button color="accent" (click)="retakePicture()">Retake Picture</button>
+          </div>
+
+          <div class="map-container">
+            <app-maps [latitude]="latitude" [longitude]="longitude"></app-maps>
+          </div>
+
+          <mat-form-field style="margin-top: 85px;">
+            <mat-label>Latitude</mat-label>
+            <input matInput formControlName="latitude" readonly>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Longitude</mat-label>
+            <input matInput formControlName="longitude" readonly>
+          </mat-form-field>
+
+          <button mat-raised-button color="primary" type="submit">Submit</button>
+        </form>
+      </mat-card>
+    </div>
+  </div>
+</div>

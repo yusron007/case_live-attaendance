@@ -1,0 +1,50 @@
+.outer-container {
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  margin-left: 35rem;
+  height: 93vh;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.inner-container {
+  width: 100%;
+  max-width: 600px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container {
+  flex: 1;
+  overflow-y: auto;
+  /* padding: 20px; */
+  width: 45rem;
+}
+
+.form-card {
+  padding: 20px;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.webcam-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.map-container {
+  height: 300px;
+  margin-bottom: 20px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 10px;
+}

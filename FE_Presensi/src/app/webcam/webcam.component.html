@@ -1,0 +1,12 @@
+<div class="webcam-container">
+  <webcam
+    [height]="240"
+    [width]="320"
+    [trigger]="triggerObservable"
+    [switchCamera]="nextWebcamObservable"
+    [videoOptions]="videoOptions"
+    (imageCapture)="handleImage($event)"
+    (initError)="handleInitError($event)">
+  </webcam>
+  <button mat-raised-button color="primary" (click)="triggerSnapshot()">Take Picture</button>
+</div>
